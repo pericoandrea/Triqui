@@ -12,7 +12,7 @@ class Board extends React.Component {
     }
   
     render() {
- 
+        //Este comentario
       return (
         <div>
           <div className="board-row">

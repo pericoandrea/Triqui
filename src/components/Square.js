@@ -7,6 +7,6 @@ function Square(props){
           {props.value}
         </button>
       );
-
+        //Otro comentario
 }
 export default Square;

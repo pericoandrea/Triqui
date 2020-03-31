@@ -15,6 +15,7 @@ import Board from './Board';
         }
         
         calculateWinner = (squares) => {
+          //Este comentario
             const lines = [
                 [0, 1, 2],
                 [3, 4, 5],
