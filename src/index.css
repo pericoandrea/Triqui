@@ -34,7 +34,6 @@ body {
   
   .square:focus {
     outline: none;
-    /*un comentario */
   }
   
   .kbd-navigation .square:focus {
