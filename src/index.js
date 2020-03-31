@@ -6,7 +6,6 @@ import Game from './components/Game';
   ReactDOM.render(
     <Game />,
     document.getElementById('root')
-    //COmentario de prueba
   );
 
  
