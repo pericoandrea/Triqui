@@ -3,30 +3,32 @@ import Square from './Square';
 
 class Board extends React.Component {
  
-    renderSquare(index) {
-      return (<Square 
-      text={this.props.squares[index]}
-      onClickPersonalizado={() => this.props.onClick(index)}
-      />);
+    renderSquare(index,jndex) {
+      return (
+        <Square 
+          text={this.props.squares[index][jndex]}
+          onClickPersonalizado={() => this.props.onClick(index,jndex)}
+        />
+      );
     }
   
     render() {
       return (
         <div>
           <div className="board-row">
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
+            {this.renderSquare(0,0)}
+            {this.renderSquare(1,0)}
+            {this.renderSquare(2,0)}
           </div>
           <div className="board-row">
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
+            {this.renderSquare(0,1)}
+            {this.renderSquare(1,1)}
+            {this.renderSquare(2,1)}
           </div>
           <div className="board-row">
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
+            {this.renderSquare(0,2)}
+            {this.renderSquare(1,2)}
+            {this.renderSquare(2,2)}
           </div>
         </div>
       );

@@ -7,7 +7,8 @@ class Game extends Component {
     this.state = {
       history: [
         {
-          squares: Array(9).fill(null)
+          squares: [[null,null,null],[null,null,null],[null,null,null]],
+          position: [null,null]
         }
       ],
       stepNumber: 0,
@@ -16,47 +17,47 @@ class Game extends Component {
   }
 
   calculateWinner = (squares) => {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
+    const lines = [ 
+      [[0,0],[1,0],[2,0]],
+      [[0,1],[1,1],[2,1]],
+      [[0,2],[1,2],[2,2]],
+      [[0,0],[0,1],[0,2]],
+      [[1,0],[1,1],[1,2]],
+      [[2,0],[2,1],[2,2]],
+      [[0,0],[1,1],[2,2]],
+      [[2,0],[1,1],[0,2]]
     ];
     for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (
-        squares[a] &&
-        squares[a] === squares[b] &&
-        squares[a] === squares[c]
-      ) {
-        return squares[a];
-      }
+        const [a, b, c] = lines[i];
+        if (
+          squares[a[0]][a[1]] &&
+          squares[a[0]][a[1]] === squares[b[0]][b[1]] &&
+          squares[a[0]][a[1]] === squares[c[0]][c[1]]
+        ) {
+          return squares[a[0]][a[1]];
+        }
+     
     }
     return null;
   };
 
-  handleClick(i) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[history.length - 1];
+  handleClick(i, j) {
+    const { history, stepNumber, xIsNext } = this.state;
+    const historia = history.slice(0, stepNumber + 1);
+    const current = historia[historia.length - 1]
     const squares = current.squares.slice();
-    
-    if (this.calculateWinner(squares) || squares[i]) {
+    if (this.calculateWinner(squares) || squares[i][j]) {
       return;
     }
-    
-    squares[i] = this.state.xIsNext ? "X" : "O";
-    console.log(history);
+    squares[i][j] = xIsNext ? "X" : "O";
     this.setState({
-      history: history.concat([
+      history: historia.concat([
         {
-          squares: squares
+          squares: squares,
+          position: [i,j]
         }
       ]),
-      stepNumber: history.length,
+      stepNumber: historia.length,
       xIsNext: !this.state.xIsNext
     });
   }
@@ -69,12 +70,13 @@ class Game extends Component {
   }
 
   render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const {history} = this.state;
+    const historia = [...history];
+    const current = historia[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
-
-    const moves = history.map((step, move) => {
-      const desc = move ? "Go to move #" + move : "Go to game start";
+    const moves = historia.map((step, move) => {
+      console.log("step: ", step);
+      const desc = move ? `Go to move # ${move} (${step.position[0]},${step.position[1]})` : "Go to game start";
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -93,7 +95,7 @@ class Game extends Component {
         <div className="game-board">
           <Board
             squares={current.squares}
-            onClick={(i) => this.handleClick(i)} 
+            onClick={(i, j) => this.handleClick(i, j)} 
           />
         </div>
         <div className="game-info">
