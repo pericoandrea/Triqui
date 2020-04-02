@@ -3,16 +3,14 @@ import Square from './Square';
 
 class Board extends React.Component {
  
-    renderSquare(i) {
-
+    renderSquare(index) {
       return (<Square 
-      value ={this.props.squares[i]}
-      onClick={() => this.props.onClick(i)}
+      text={this.props.squares[index]}
+      onClickPersonalizado={() => this.props.onClick(index)}
       />);
     }
   
     render() {
-     
       return (
         <div>
           <div className="board-row">
