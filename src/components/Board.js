@@ -4,8 +4,11 @@ import Square from './Square';
 class Board extends React.Component {
  
     renderSquare(index,jndex) {
+      const position = this.props.position;
       return (
-        <Square 
+        <Square
+          key={`s-${index}-${jndex}`}
+          className={(position[0] === index && position[1] === jndex) ? "square-bold" : null } 
           text={this.props.squares[index][jndex]}
           onClickPersonalizado={() => this.props.onClick(index,jndex)}
         />
@@ -13,23 +16,19 @@ class Board extends React.Component {
     }
   
     render() {
+      const cuadrados = this.props.squares;
+      
       return (
         <div>
-          <div className="board-row">
-            {this.renderSquare(0,0)}
-            {this.renderSquare(1,0)}
-            {this.renderSquare(2,0)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(0,1)}
-            {this.renderSquare(1,1)}
-            {this.renderSquare(2,1)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(0,2)}
-            {this.renderSquare(1,2)}
-            {this.renderSquare(2,2)}
-          </div>
+          {cuadrados.map(
+            (lineas, k) => (
+              <div
+                key={`br-${k}`}
+                className="board-row">
+                {lineas.map((cuadrado, l) => this.renderSquare(k,l))}
+              </div>
+            )
+          )}
         </div>
       );
     }
