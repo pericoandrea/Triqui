@@ -4,8 +4,10 @@ import Square from './Square';
 class Board extends React.Component {
  
     renderSquare(index,jndex) {
+      const position = this.props.position
       return (
-        <Square 
+        <Square
+          className={(position[0] === index && position[1] === jndex) && "square-bold"}
           text={this.props.squares[index][jndex]}
           onClickPersonalizado={() => this.props.onClick(index,jndex)}
         />

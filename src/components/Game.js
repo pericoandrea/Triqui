@@ -45,15 +45,24 @@ class Game extends Component {
     const { history, stepNumber, xIsNext } = this.state;
     const historia = history.slice(0, stepNumber + 1);
     const current = historia[historia.length - 1]
-    const squares = current.squares.slice();
-    if (this.calculateWinner(squares) || squares[i][j]) {
+    const cuadrados = [];
+
+    for(let k = 0; k < 3; k++) {
+      if(!cuadrados[k]) cuadrados[k] = []  
+      for(let l = 0; l <3; l++) {
+        cuadrados[k][l] = current.squares[k][l];
+      }
+    }
+          
+    if (this.calculateWinner(cuadrados) || cuadrados[i][j]) {
       return;
     }
-    squares[i][j] = xIsNext ? "X" : "O";
+    cuadrados[i][j] = xIsNext ? "X" : "O";
+    console.log(historia);
     this.setState({
       history: historia.concat([
         {
-          squares: squares,
+          squares: cuadrados,
           position: [i,j]
         }
       ]),
@@ -75,7 +84,6 @@ class Game extends Component {
     const current = historia[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
     const moves = historia.map((step, move) => {
-      console.log("step: ", step);
       const desc = move ? `Go to move # ${move} (${step.position[0]},${step.position[1]})` : "Go to game start";
       return (
         <li key={move}>
@@ -95,6 +103,7 @@ class Game extends Component {
         <div className="game-board">
           <Board
             squares={current.squares}
+            position={current.position}
             onClick={(i, j) => this.handleClick(i, j)} 
           />
         </div>
