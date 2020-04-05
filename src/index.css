@@ -1,62 +1,95 @@
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
-  }
-  
-  ol, ul {
-    padding-left: 30px;
-  }
-  
-  .board-row:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  
-  .status {
-    margin-bottom: 10px;
-  }
-  
-  .square {
-    margin: 20px;
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 34px;
-  }
-  
-  .square:focus {
-    outline: none;
-    /*comentario*/
-  }
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
 
-  .square-bold {
-    color: white;
-    background-color: black;
-  }
-  
-  .kbd-navigation .square:focus {
-    background: #ddd;
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .game-info {
-    margin-left: 20px;
-  }
+ol, ul {
+  padding-left: 30px;
+}
+button{
 
-  .test {
-    background-color: aqua;
-  }
-  
+background-color: steelblue;
+font-size: large;
+height: 55px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: lightgreen;
+  border: groove;
+  float: left;
+  font-size: 65px;
+  /* line-height: 34px; */
+  height: 100px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 100px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+background-color: cadetblue;
+}
+
+.game-info {
+  margin-left: 20px;
+  background-color: palegreen;
+  font-size: x-large;
+
+}
+
+.square-bold {
+  color: white;
+  background-color: black;
+}
+h1{
+  background-color: burlywood;
+  text-align: center;
+  font-size: -webkit-xxx-large;
+  color: maroon;
+  margin-top: 0px;
+margin-bottom: 0px;
+font-family: -webkit-body;
+}
+h2{
+  margin: 0px;
+  background-color: antiquewhite;
+  FONT-SIZE: x-large;
+  font-style: italic;
+  font-family: cursive;
+
+}
+p{
+  text-align: center;
+  background-color: rgb(49, 30, 104);
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 30px;
+  font-family: -webkit-body;
+  padding: 20px;
+  margin: 0px;
+}
+.imagen{
+align-items: center;
+background-color: teal;
+}

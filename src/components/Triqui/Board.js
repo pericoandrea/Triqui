@@ -14,8 +14,7 @@ class Board extends React.Component {
         />
       );
     }
-  //davinchi one
-  //davinchi two
+    
   
     render() {
       const cuadrados = this.props.squares;
