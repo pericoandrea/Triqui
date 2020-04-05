@@ -8,9 +8,11 @@ import { Link } from "react-router-dom"
 function Home() {
     return (
         <>
-            <h1>Juega Triqui y pasa esta cuarentena en diversión</h1>
+       <div> 
+          <h1>Juega Triqui y pasa esta cuarentena en diversión</h1>
+       </div>  
             <div>
-            <h2> Lo que debes saber...</h2>
+                <h2> Lo que debes saber...</h2>
             </div>
      <div>
             <p>Es un juego de lápiz y papel o digital entre dos jugadores: 
@@ -19,14 +21,17 @@ function Home() {
      </div>   
     
      <div className="imagen">
-         
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHu-_3rLSxgdZ3Oa-a1PuHTa-6S9UsGZq_LuXFt9EGw2-dXAui&usqp=CAU" alt="imagen triqui"></img>
+     
+     <div className="link">     
+            <Link to="/triqui"> ¡Juega Aquí!</Link>
+         </div>
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHu-_3rLSxgdZ3Oa-a1PuHTa-6S9UsGZq_LuXFt9EGw2-dXAui&usqp=CAU" alt="imagen triqui"></img>
-        <br>
-                    <br></br>
-        <Link to="/triqui"> ¡Juguemos!</Link>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQXFr9Fhxmc-6ciUz4A2B_WulqPvm9hztCnPsOH_f_FXl01X5G-&usqp=CAU" alt="imagen triqui"></img>
-     </div>
+     <div className="imagen1">     
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQXFr9Fhxmc-6ciUz4A2B_WulqPvm9hztCnPsOH_f_FXl01X5G-&usqp=CAU" alt="imagen triqui"></img>
+    </div>
+    </div>
+
         </>
     )
 }
