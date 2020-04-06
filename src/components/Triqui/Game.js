@@ -46,19 +46,17 @@ class Game extends Component {
     const historia = history.slice(0, stepNumber + 1);
     const current = historia[historia.length - 1]
     const cuadrados = [];
-
-    for(let k = 0; k < 3; k++) {
-      if(!cuadrados[k]) cuadrados[k] = []  
-      for(let l = 0; l <3; l++) {
-        cuadrados[k][l] = current.squares[k][l];
+for(let k = 0; k < 3; k++) {
+      if(!cuadrados[k]) cuadrados[k] = [];
+      for(let l = 0; l < 3; l ++) {
+        cuadrados[k][l] =  current.squares[k][l];
       }
     }
-          
+
     if (this.calculateWinner(cuadrados) || cuadrados[i][j]) {
       return;
     }
     cuadrados[i][j] = xIsNext ? "X" : "O";
-    console.log(historia);
     this.setState({
       history: historia.concat([
         {
