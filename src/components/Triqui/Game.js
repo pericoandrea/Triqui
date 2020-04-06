@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Board from "./Board";
+import { Switch } from '@material-ui/core';
 
 class Game extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class Game extends Component {
         }
       ],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
+      onSwitch: false
     };
   }
 
@@ -76,6 +78,12 @@ for(let k = 0; k < 3; k++) {
     });
   }
 
+  handleChangeSwitch = (event) => {
+    this.setState({
+      onSwitch: event.target.checked
+    })
+  }
+
   render() {
     const {history} = this.state;
     const historia = [...history];
@@ -107,7 +115,12 @@ for(let k = 0; k < 3; k++) {
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <ol>{moves}</ol>
+          <Switch
+            onChange={this.handleChangeSwitch}
+            color="primary"
+            name="switch"
+           />
+          <ol>{this.state.onSwitch ? moves.reverse() : moves}</ol>
         </div>
       </div>
     );
