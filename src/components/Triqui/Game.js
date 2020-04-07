@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import Board from "./Board";
+// import Switch from '@material-ui/core/Switch';
+// import Switches from "./switch";
+
 
 class Game extends Component {
   constructor(props) {
@@ -9,13 +12,13 @@ class Game extends Component {
         {
           squares: [[null,null,null],[null,null,null],[null,null,null]],
           position: [null,null]
+          
         }
       ],
       stepNumber: 0,
       xIsNext: true
     };
   }
-
   calculateWinner = (squares) => {
     const lines = [ 
       [[0,0],[1,0],[2,0]],
@@ -33,14 +36,17 @@ class Game extends Component {
           squares[a[0]][a[1]] &&
           squares[a[0]][a[1]] === squares[b[0]][b[1]] &&
           squares[a[0]][a[1]] === squares[c[0]][c[1]]
-        ) {
+          
+        ) 
+        
+        {
           return squares[a[0]][a[1]];
         }
-     
+  
     }
     return null;
   };
-
+  
   handleClick(i, j) {
     const { history, stepNumber, xIsNext } = this.state;
     const historia = history.slice(0, stepNumber + 1);
@@ -78,6 +84,7 @@ class Game extends Component {
   }
 
   render() {
+  
     const {history} = this.state;
     const historia = [...history];
     const current = historia[this.state.stepNumber];
@@ -94,9 +101,20 @@ class Game extends Component {
     let status;
     if (winner) {
       status = "Winner: " + winner;
+   
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
+    // console.log(winner,current);
+     if (winner !=='null'){
+    console.log('empate')
+      
+     } else if(winner!=='O'){
+     console.log('gana O')
+     }
+     else{
+       console.log('Gana X')
+     }
     return (
       <div className="game">
         <div className="game-board">
@@ -104,13 +122,18 @@ class Game extends Component {
             squares={current.squares}
             position={current.position}
             onClick={(i, j) => this.handleClick(i, j)} 
+            
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
+          
+          <div>{status}
+         
+          </div>
           <ol>{moves}</ol>
         </div>
       </div>
+      
     );
   }
 }
