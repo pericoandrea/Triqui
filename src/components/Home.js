@@ -6,6 +6,8 @@ function Home() {
         <>
             <h1>Bienvenidos</h1>
             <Link to="/triqui">Triqui</Link>
+            <br />
+            <Link to="/ppt">Piedra, Papel o Tijera</Link>
         </>
     )
 }
