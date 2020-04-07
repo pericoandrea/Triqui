@@ -37,6 +37,11 @@ body {
     outline: none;
     /*comentario*/
   }
+
+  .square-bold {
+    color: white;
+    background-color: black;
+  }
   
   .kbd-navigation .square:focus {
     background: #ddd;
