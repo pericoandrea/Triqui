@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Board from "./Board";
 // import Switch from '@material-ui/core/Switch';
 // import Switches from "./switch";
+import { Switch } from '@material-ui/core';
 
 
 class Game extends Component {
@@ -16,7 +17,8 @@ class Game extends Component {
         }
       ],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
+      onSwitch: false
     };
   }
   calculateWinner = (squares) => {
@@ -52,7 +54,7 @@ class Game extends Component {
     const historia = history.slice(0, stepNumber + 1);
     const current = historia[historia.length - 1]
     const cuadrados = [];
-    for(let k = 0; k < 3; k++) {
+for(let k = 0; k < 3; k++) {
       if(!cuadrados[k]) cuadrados[k] = [];
       for(let l = 0; l < 3; l ++) {
         cuadrados[k][l] =  current.squares[k][l];
@@ -63,7 +65,6 @@ class Game extends Component {
       return;
     }
     cuadrados[i][j] = xIsNext ? "X" : "O";
-
     this.setState({
       history: historia.concat([
         {
@@ -81,6 +82,12 @@ class Game extends Component {
       stepNumber: step,
       xIsNext: step % 2 === 0
     });
+  }
+
+  handleChangeSwitch = (event) => {
+    this.setState({
+      onSwitch: event.target.checked
+    })
   }
 
   render() {
@@ -126,11 +133,21 @@ class Game extends Component {
           />
         </div>
         <div className="game-info">
+<<<<<<< HEAD
           
           <div>{status}
          
           </div>
           <ol>{moves}</ol>
+=======
+          <div>{status}</div>
+          <Switch
+            onChange={this.handleChangeSwitch}
+            color="primary"
+            name="switch"
+           />
+          <ol>{this.state.onSwitch ? moves.reverse() : moves}</ol>
+>>>>>>> 22499f56a48847165c36a6b816eff9ed6cf503df
         </div>
       </div>
       
