@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Board from "./Board";
 // import Switch from '@material-ui/core/Switch';
 // import Switches from "./switch";
-import { Switch } from '@material-ui/core';
+//import { Switch } from '@material-ui/core';
 
 
 class Game extends Component {
@@ -133,21 +133,11 @@ for(let k = 0; k < 3; k++) {
           />
         </div>
         <div className="game-info">
-<<<<<<< HEAD
           
           <div>{status}
          
           </div>
           <ol>{moves}</ol>
-=======
-          <div>{status}</div>
-          <Switch
-            onChange={this.handleChangeSwitch}
-            color="primary"
-            name="switch"
-           />
-          <ol>{this.state.onSwitch ? moves.reverse() : moves}</ol>
->>>>>>> 22499f56a48847165c36a6b816eff9ed6cf503df
         </div>
       </div>
       

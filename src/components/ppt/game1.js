@@ -1,19 +1,5 @@
 // import React, { Component } from "react";
 // import ReactDOM from "react";
-import React from "react"
-
-let name="David";
-function saludo(name){
-    return ( 
-
-    <h1> Hola Mundo, saludo</h1>
-    console.log(saludo);
-    
-
-
-}
-
-export default saludo;
  // var usuarioElige = prompt("piedra, papel o tijera?");
  
  
