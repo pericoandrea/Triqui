@@ -3,7 +3,7 @@ import React from 'react';
 function Square(props){
     return (
       <button
-        className={`square ${props.className}`}
+        className="square"
         onClick={props.onClickPersonalizado}
       >
         {props.text}
