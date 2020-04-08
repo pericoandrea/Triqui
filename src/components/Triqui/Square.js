@@ -5,8 +5,10 @@ function Square(props){
       <button
         className={`square ${props.className}`}
         onClick={props.onClickPersonalizado}
+        
       >
         {props.text}
+        {props.cuadrowinner}
       </button>
       );
      

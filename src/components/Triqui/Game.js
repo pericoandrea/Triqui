@@ -12,7 +12,8 @@ class Game extends Component {
         }
       ],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
+      Descendente: true,
     };
   }
 
@@ -46,6 +47,7 @@ class Game extends Component {
     const historia = history.slice(0, stepNumber + 1);
     const current = historia[historia.length - 1]
     const cuadrados = [];
+    
     for(let k = 0; k < 3; k++) {
       if(!cuadrados[k]) cuadrados[k] = [];
       for(let l = 0; l < 3; l ++) {
@@ -57,6 +59,8 @@ class Game extends Component {
       return;
     }
     cuadrados[i][j] = xIsNext ? "X" : "O";
+
+    console.log(this.setState.calculateWinner(cuadrados[i][j]));
 
     this.setState({
       history: historia.concat([
@@ -77,26 +81,47 @@ class Game extends Component {
     });
   }
 
+  Ordenar() {
+    this.setState({
+      Descendente: this.state.Descendente === false
+    });
+  }
+
   render() {
     const {history} = this.state;
     const historia = [...history];
     const current = historia[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
     const moves = historia.map((step, move) => {
-      const desc = move ? `Go to move # ${move} (${step.position[0]},${step.position[1]})` : "Go to game start";
+      const desc = move ? `Ir al movimiento # ${move} (${step.position[0]},${step.position[1]})` : "Ir al inicio del juego!";
       return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        <li className="lista" key={move}>
+          <button  className="botonlist"  onClick={() => this.jumpTo(move)}>       
+          {move === this.state.stepNumber ? <b>{desc}</b> : desc}
+          </button>
         </li>
       );
     });
+ 
 
     let status;
     if (winner) {
-      status = "Winner: " + winner;
-    } else {
-      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+      status = "Ganador: " + winner;
+    }      
+    else {
+      status = "Siguiente Jugador: " + (this.state.xIsNext ? "X" : "O");
     }
+    /*console.log(this.state.history.length);*/
+    /*Según el console log existe un movimiento más es decir son 10 porque volver al juego es contado como un movimiento */
+    if(!winner && this.state.history.length === 10){
+      status = "¡Los/as Jugadores/as están empatados/as!";
+    }
+
+    if(this.state.move  !== "X" && this.state.move !== "O") 
+    {
+      
+    }
+
     return (
       <div className="game">
         <div className="game-board">
@@ -104,14 +129,24 @@ class Game extends Component {
             squares={current.squares}
             position={current.position}
             onClick={(i, j) => this.handleClick(i, j)} 
+            winner = {this.calculateWinner(current.squares)}
+           
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
+          <div className="ganador">{status}</div>
+        
+        <div>
+          <ol>{this.state.Descendente ? moves : moves.reverse()}</ol>
+          <button className="boton_orden" onClick={() => this.Ordenar()}>
+            Organizar por: {this.state.Descendente ? "Descendente" : "Ascendente"}
+          </button>
+        </div>
         </div>
       </div>
     );
+    
+
   }
 }
 
