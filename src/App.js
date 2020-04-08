@@ -11,13 +11,7 @@ function App() {
         <Switch>
             <Route path="/" component={Home} exact/>
             <Route path="/triqui" component={Game} />
-
             <Route path="/ppt" component={GamePpt}/>
-        
-         
-
-            <Route path="/ppt" component={GamePpt}/>
-
         </Switch>
     )
 }

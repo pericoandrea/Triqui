@@ -24,9 +24,7 @@ function Home() {
      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHu-_3rLSxgdZ3Oa-a1PuHTa-6S9UsGZq_LuXFt9EGw2-dXAui&usqp=CAU" alt="imagen triqui"></img>
      
      <div className="link">     
-            <Link to="/triqui"> ¡Juega Aquí!</Link>
-         </div>
-         <div className="link1">     
+            <Link to="/triqui"> ¡Juega Triqui!</Link>
             <Link to="/ppt"> ¡Juega piedra papel y tijera!</Link>
          </div>
      <div className="imagen1">     
