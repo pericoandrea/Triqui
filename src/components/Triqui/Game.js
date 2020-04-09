@@ -14,7 +14,8 @@ class Game extends Component {
       ],
       stepNumber: 0,
       xIsNext: true,
-      onSwitch: false
+      onSwitch: false,
+      ganador: []
     };
   }
 
@@ -36,6 +37,8 @@ class Game extends Component {
           squares[a[0]][a[1]] === squares[b[0]][b[1]] &&
           squares[a[0]][a[1]] === squares[c[0]][c[1]]
         ) {
+          if(!this.state.ganador.length)
+            this.setState({ganador: [a,b,c]});
           return squares[a[0]][a[1]];
         }
      
@@ -110,6 +113,7 @@ for(let k = 0; k < 3; k++) {
           <Board
             squares={current.squares}
             position={current.position}
+            ganadores={this.state.ganador}
             onClick={(i, j) => this.handleClick(i, j)} 
           />
         </div>

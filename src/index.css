@@ -43,6 +43,11 @@ body {
     background-color: black;
   }
 
+  .ganador {
+    color: blueviolet;
+    background-color: aqua;
+  }
+
   .kbd-navigation .square:focus {
     background: #ddd;
   }

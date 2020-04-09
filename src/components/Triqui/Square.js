@@ -1,9 +1,9 @@
 import React from 'react';
 
 function Square(props){
-      return (
+    return (
       <button
-        className={`square ${props.className}`}
+        className={`square ${props.className.map(cssClass => ` ${cssClass} `)}`}
         onClick={props.onClickPersonalizado}
       >
         {props.text}
