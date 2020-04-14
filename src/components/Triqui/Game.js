@@ -60,7 +60,6 @@ class Game extends Component {
     }
     cuadrados[i][j] = xIsNext ? "X" : "O";
 
-    console.log(this.setState.calculateWinner(cuadrados[i][j]));
 
     this.setState({
       history: historia.concat([
@@ -115,11 +114,6 @@ class Game extends Component {
     /*Según el console log existe un movimiento más es decir son 10 porque volver al juego es contado como un movimiento */
     if(!winner && this.state.history.length === 10){
       status = "¡Los/as Jugadores/as están empatados/as!";
-    }
-
-    if(this.state.move  !== "X" && this.state.move !== "O") 
-    {
-      
     }
 
     return (

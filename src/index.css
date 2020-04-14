@@ -158,10 +158,10 @@ body {
     color: tomato;
   }
 
-  header{
-    color: rgb(241, 245, 11);
+  .header{
+    color: tomato;
     text-align: center;
-    font-size: 20px;
+    font-size: 50px;
     font-family: cursive;
     margin: 0px 0px;
   }
@@ -224,20 +224,28 @@ body {
 
 .bppt1{
   position: absolute;
-  left: 20%;
+  left: 35%;
   top: 40%;
   font-family: cursive;
   padding: 5px 5px;
-  margin: 0px 20px;
+  border-color: tomato;
+}
+.bppt1:hover{
+  background-color: rgba(224, 124, 85, 0.664);
+  color:wheat;
 }
 
 .bppt2{
   position: absolute;
-  left: 40%;
+  left: 46%;
   top: 40%;
   font-family: cursive;
   padding: 5px 5px;
-  margin: 0px 20px;
+  border-color: tomato;
+}
+.bppt2:hover{
+  background-color: rgba(224, 124, 85, 0.664);
+  color:wheat;
 }
 
 .bppt3{
@@ -246,17 +254,41 @@ body {
   top: 40%;
   font-family: cursive;
   padding: 5px 5px;
-  margin: 0px 20px;
+  border-color: tomato;
+}
+
+.bppt3:hover{
+  background-color: rgba(224, 124, 85, 0.664);
+  color:wheat;
 }
 
 .elemaquina{
   color: rgb(36, 215, 228);
   font-size: 30px;
   position: absolute;
-  left: 30%;
-  top: 40%;
+  left: 25%;
+  top: 50%;
   font-family: cursive;
   padding: 5px 5px;
   margin: 0px 20px;
 }
 
+.resultado{
+  color: rgb(36, 215, 228);
+  font-family: cursive;
+  position: relative;
+  left: 30%;
+}
+
+.uno{
+  position: absolute;
+  top: 40%;
+  left: 15%;
+}
+
+.multi{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+
+}

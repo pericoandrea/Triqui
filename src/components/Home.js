@@ -16,7 +16,7 @@ function Home() {
             <div className="flecha1 flecha2"></div>
             <div className="flecha1 flecha3"></div>
 
-            <div ><a  className="boton-personalizado1" href="/PPTR">¡PIEDRA, PAPEL O TIJERA!</a>
+            <div ><a  className="boton-personalizado1" href="/jugador">¡PIEDRA, PAPEL O TIJERA!</a>
             </div>
                        
         </>
