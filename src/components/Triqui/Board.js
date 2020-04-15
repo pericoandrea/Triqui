@@ -4,15 +4,24 @@ import Square from './Square';
 class Board extends React.Component {
  
     renderSquare(index,jndex) {
-      const position = this.props.position;
-      const cuadroganador = this.props.winner;
+      const {position, ganadores} = this.props;
+      /*const cuadroganador = this.props.winner;*/
       return (
         <Square
           key={`s-${index}-${jndex}`}
-          className={(position[0] === index && position[1] === jndex) ? "square-bold" : null } 
+          className={
+            ganadores.map(
+              ganador =>(
+                ganador[0] === index && ganador[1] === jndex) ? 
+                "cganador"
+                : (position[0] === index && position[1] === jndex) ? "square-bold" : null )
+
+              }
+
           text={this.props.squares[index][jndex]}
           onClickPersonalizado={() => this.props.onClick(index,jndex)}
-          cuadrowinner = {(cuadroganador) ? "*" : null}
+          /*cuadrowinner = {(cuadroganador) ? "*" : null}*/
+
         />
       );
     }

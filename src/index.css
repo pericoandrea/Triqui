@@ -33,6 +33,12 @@ body {
     left: 15%;
     padding: 5px 5px;
   }
+
+  .cganador{
+    background-color: violet;
+  }
+
+
   .divbot{
     position: absolute;
     top: 55%;
