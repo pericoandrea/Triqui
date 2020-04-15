@@ -6,7 +6,7 @@ import {
 } from "@material-ui/icons";
 
 import { IconButton } from "@material-ui/core";
-class GamePpt extends Component {
+class GamePpt1 extends Component {
      
 //     constructor(props){
 //         super(props);
@@ -66,8 +66,8 @@ class GamePpt extends Component {
         return (
             
             <div >
-                <h1>Piedra, papel o tijera</h1>
-                <div> 
+                <h1>Piedra, papel o tijera vs 2</h1>
+                {/* <div> 
                 <IconButton onClick={(e) => this.handleClick("piedra")}>
                     <FiberManualRecordIcon fontSize="large" />
                 </IconButton>
@@ -87,10 +87,10 @@ class GamePpt extends Component {
                 <h3> br6</h3>
                 <h6> Elige tu mejor opción y atrevete a ganarle a la máquina</h6>
          
-                
+                 */}
            </div>
         );
     }
 }
 
-export default GamePpt;
+export default GamePpt1;

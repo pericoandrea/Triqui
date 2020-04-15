@@ -26,6 +26,7 @@ function Home() {
      <div className="link">     
             <Link to="/triqui"> ¡Juega Triqui!</Link>
             <Link to="/ppt"> ¡Juega piedra papel y tijera!</Link>
+            <Link to="/juego2"> ¡Juega piedra papel y tijera vs!</Link>
          </div>
      <div className="imagen1">     
            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQXFr9Fhxmc-6ciUz4A2B_WulqPvm9hztCnPsOH_f_FXl01X5G-&usqp=CAU" alt="imagen triqui"></img>

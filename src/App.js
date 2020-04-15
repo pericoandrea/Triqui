@@ -4,6 +4,7 @@ import Game from "./components/Triqui/Game";
 import Home from "./components/Home";
 
 import GamePpt from "./components/ppt/GamePpt"
+import GamePpt1 from "./components/juego2/gameppt1";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
             <Route path="/" component={Home} exact/>
             <Route path="/triqui" component={Game} />
             <Route path="/ppt" component={GamePpt}/>
+            <Route path="/juego2" component={GamePpt1}/>
         </Switch>
     )
 }

@@ -19,6 +19,9 @@ height: 55px;
   display: table;
 }
 
+.empate {
+  font-size: 40px;
+}
 .status {
   margin-bottom: 10px;
 }

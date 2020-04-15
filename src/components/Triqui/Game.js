@@ -4,7 +4,7 @@ import Board from "./Board";
 // import Switches from "./switch";
 //import { Switch } from '@material-ui/core';
 
-
+import Button from '@material-ui/core/Button';
 class Game extends Component {
   constructor(props) {
     super(props);
@@ -133,13 +133,17 @@ for(let k = 0; k < 3; k++) {
           />
         </div>
         <div className="game-info">
-          
+         <Button variant="contained" color="primary">
+            Juega contra otro jugador
+          </Button>
+
           <div>{status}
          
           </div>
           <ol>{moves}</ol>
         </div>
       </div>
+      
       
     );
   }
