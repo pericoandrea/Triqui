@@ -4,18 +4,31 @@ class Multijugador extends Component {
 
     constructor(props){
         super(props);
-        const random = Math.floor(Math.random() * Math.floor(3));
+        const random1 = Math.floor(Math.random() * Math.floor(3));
+        const random2 = Math.floor(Math.random() * Math.floor(3));
         const options= ["PIEDRA", "PAPEL", "TIJERA"];
         this.state = {          
-          aleatoreo1: options[random],
-          aleatoreo2: options[random]
+          aleatoreo1: options[random1],
+          aleatoreo2: options[random2]
         } 
     }
+
+    /*handleClick = () => {
+            this.setState(
+                () => this.calculo()
+            )     
+    }*/
+
               
     handleClick = () => {
-    this.setState(
-        () => this.calculo()
-    );
+        if (this.state.aleatorio2 && this.state.aleatorio1) {
+            return(
+            this.setState(
+                () => this.calculo()
+            )     
+            )       
+        }
+
     }
 
   calculo = () => {
@@ -56,7 +69,7 @@ class Multijugador extends Component {
             <button className="boton-personalizado bppt2" onClick={(e, aleatoreo2) => this.handleClick(aleatoreo2)}> 2</button>
                         
             
-            { this.state.resultado && 
+            { this.state.resultado &&  
               <div>
                 <h1 className="resultado">{this.state.resultado}</h1>
                 <div className="elemaquina">
@@ -64,7 +77,7 @@ class Multijugador extends Component {
                   <h3> La elección del jugador fue: {this.state.aleatoreo2}</h3>
                 </div>                
               </div>
-    	      }
+    	    }
             
           </div>
         )
