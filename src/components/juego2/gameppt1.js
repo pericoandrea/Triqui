@@ -8,66 +8,53 @@ import {
 import { IconButton } from "@material-ui/core";
 class GamePpt1 extends Component {
      
-//     constructor(props){
-//         super(props);
-//         const ram = "dskfjsdjf"
-// this.state= {
-//     estado1: ["piedra"],
-
     handleClick = (seleccion) => {
        this.setState({
        miSeleccion: seleccion })
      }
-
-     handleClick1 = (opcion1) => {
+     handleClick1 = (seleccion1) => {
         this.setState({
-        pagina2: opcion1 })
-        
+        miSeleccion1: seleccion1 })
       }
- 
-    render() {
-        
-         if(this.state && this.state.miSeleccion) {
-            console.log("mi Seleccion:", this.state.miSeleccion); 
-            var numAleatorio= Math.floor(Math.random() * 3);
-            var opciones = ["piedra", "papel", "tijera"];
-            var computadoraElige = opciones[numAleatorio];
-            console.log ("seleccion computador", computadoraElige);
-            if(computadoraElige === this.state.miSeleccion){
+       render() {
+        if(this.state && this.state.miSeleccion) {  
+            console.log("Player 1 Seleccionó : ", this.state.miSeleccion);
+            if(this.state && this.state.miSeleccion1){ 
+                console.log("Player 2 Seleccionó : ", this.state.miSeleccion1);
+        if(this.state.miSeleccion1 === this.state.miSeleccion){
                 return(
                     <div className="empate">Empate</div>
                 );
-            }
-            if(this.state.miSeleccion === "piedra"){
-                if(computadoraElige === "tijera"){
-                     return "¡Gana usuario, Piedra gana!";
+        }
+             if(this.state.miSeleccion === "piedra"){
+                if(this.state.miSeleccion1 === "tijera"){
+                     return "¡Gana Player 1, Piedra gana!";
                 } else {
-                     return "¡Computador Gana, Papel gana!";
+                     return "¡Gana Player 2, Papel gana!";
                 }
             }
             if(this.state.miSeleccion === "papel"){
-                if(computadoraElige === "piedra"){
-                     return "¡Gana Usuario, Papel gana!";
+                if(this.state.miSeleccion1 === "piedra"){
+                     return "¡Gana Player 1, Papel gana!";
                 } else {
-                     return "¡Gana Computador, Tijera gana!";
+                     return "¡Gana Player 2, Tijera gana!";
                 }
             }
            if(this.state.miSeleccion === "tijera"){
-                if(computadoraElige === "papel"){
-                    return "¡Gana usuario, Tijera gana!";
+                if(this.state.miSeleccion1 === "papel"){
+                    return "¡Gana Player 1, Tijera gana!";
                 } else {
-                     return "¡Computador Gana, Piedra gana!";
+                     return "¡Gana Player 2, Piedra gana!";
                 }
             }
-            
-                console.log(this.state.pagina2);
+         }
         }
       
         return (
             
             <div >
                 <h1>Piedra, papel o tijera vs 2</h1>
-                {/* <div> 
+                <div> 
                 <IconButton onClick={(e) => this.handleClick("piedra")}>
                     <FiberManualRecordIcon fontSize="large" />
                 </IconButton>
@@ -78,19 +65,20 @@ class GamePpt1 extends Component {
                     <LocalDiningIcon fontSize="large" />
                 </IconButton>
                 </div>
+                <div> 
+                <IconButton onClick={(e) => this.handleClick1("piedra")}>
+                    <FiberManualRecordIcon fontSize="large" />
+                </IconButton>
+                <IconButton onClick={(e, opcion = "papel") => this.handleClick1(opcion)}>
+                    <PanToolIcon fontSize="large" />
+                </IconButton>
+                <IconButton onClick={(e) => this.handleClick1("tijera")}>
+                    <LocalDiningIcon fontSize="large" />
+                </IconButton>
+                </div>
                 
-
-                <h3> br2</h3>
-                <h3> br3</h3>
-                <h3> br4</h3>
-                <h3> br5</h3>
-                <h3> br6</h3>
-                <h6> Elige tu mejor opción y atrevete a ganarle a la máquina</h6>
-         
-                 */}
            </div>
         );
     }
-}
-
+ } 
 export default GamePpt1;
