@@ -34,8 +34,9 @@ body {
     padding: 5px 5px;
   }
 
-  .cganador{
+  .ganador{
     background-color: violet;
+    color: teal;
   }
 
 
@@ -45,9 +46,10 @@ body {
     left: 40%;
   }
 
-  .cuadrowinner{
+  /*.cuadrowinner{
     background-color: tomato;
-  }
+  }*/
+
   .entrada{
     color: rgb(224, 221, 21);
     text-align: center;
@@ -132,7 +134,7 @@ body {
     left: 33%;
   }
 
-  .ganador{
+  .estatus{
     color: yellow;
     font-size: 20px;
     text-align: center;

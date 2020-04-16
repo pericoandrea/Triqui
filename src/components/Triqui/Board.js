@@ -9,15 +9,13 @@ class Board extends React.Component {
       return (
         <Square
           key={`s-${index}-${jndex}`}
-          className={
+          cclassName={
             ganadores.map(
-              ganador =>(
+              ganador => (
                 ganador[0] === index && ganador[1] === jndex) ? 
-                "cganador"
-                : (position[0] === index && position[1] === jndex) ? "square-bold" : null )
-
-              }
-
+                  "ganador" 
+                : (position[0] === index && position[1] === jndex) ? "square-bold" : null)
+          }
           text={this.props.squares[index][jndex]}
           onClickPersonalizado={() => this.props.onClick(index,jndex)}
           /*cuadrowinner = {(cuadroganador) ? "*" : null}*/

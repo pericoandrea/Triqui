@@ -37,7 +37,7 @@ class Game extends Component {
           squares[a[0]][a[1]] === squares[c[0]][c[1]]
         ) {
           if(!this.state.ganador.length)
-            this.setState({ganador: [a, b, c]});
+            this.setState({ganador: [a,b,c]});
           return squares[a[0]][a[1]];
         }
      
@@ -132,7 +132,7 @@ class Game extends Component {
           />
         </div>
         <div className="game-info">
-          <div className="ganador">{status}</div>
+          <div className="estatus">{status}</div>
         
         <div>
           <ol>{this.state.Descendente ? moves : moves.reverse()}</ol>

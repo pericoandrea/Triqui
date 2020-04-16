@@ -21,20 +21,18 @@ class Multijugador extends Component {
 
               
     handleClick = () => {
-        if (this.state.aleatorio2 && this.state.aleatorio1) {
-            return(
             this.setState(
-                () => this.calculo()
+              () => this.calculo()
             )     
-            )       
-        }
+            
+          }
 
-    }
+  
 
   calculo = () => {
     console.log(this.state.aleatoreo1);
     console.log(this.state.aleatoreo2);
-    /*console.log(this.state.aleatoreo2);*/
+
     let resultado = "";
     if(
       (this.state.aleatoreo1 === "PIEDRA" && this.state.aleatoreo2 === "PAPEL") ||
@@ -58,16 +56,15 @@ class Multijugador extends Component {
       resultado // resultado: resultado
     })
   }
-
+  
   render() 
   {
-      
-        return(
+          return(
           <div>
             <div><h1 className="header">¿PIEDRA, PAPEL O TIJERA?</h1></div>
             <button className="boton-personalizado bppt1" onClick={(e, aleatoreo1) => this.handleClick(aleatoreo1)}> 1 </button>
             <button className="boton-personalizado bppt2" onClick={(e, aleatoreo2) => this.handleClick(aleatoreo2)}> 2</button>
-                        
+            
             
             { this.state.resultado &&  
               <div>
