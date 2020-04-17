@@ -2,85 +2,88 @@ import React, { Component } from "react";
 
 class Multijugador extends Component {
 
-    constructor(props){
-        super(props);
-        const random1 = Math.floor(Math.random() * Math.floor(3));
-        const random2 = Math.floor(Math.random() * Math.floor(3));
-        const options= ["PIEDRA", "PAPEL", "TIJERA"];
-        this.state = {          
-          aleatoreo1: options[random1],
-          aleatoreo2: options[random2]
-        } 
-    }
+  constructor(props){
+      super(props);
+       this.state = {
+        seleccion: {}
+      } 
+  }
 
-    /*handleClick = () => {
-            this.setState(
-                () => this.calculo()
-            )     
-    }*/
-
-              
-    handleClick = () => {
-            this.setState(
-              () => this.calculo()
-            )     
-            
-          }
-
+  handleClick = (event) => {
+    const jugador = event.target.id; /* poder pasar un id con el event del onclick */
+    const seleccion = this.state.seleccion; /* asignarle a var selección del hadleclick el estado actual de selección de cada jugador */
+    const random = Math.floor(Math.random() * Math.floor(3));
+    const options= ["PIEDRA", "PAPEL", "TIJERA"];
+    seleccion[jugador] = options[random]; /* se le pasa el id de cada jugador a seleccíón para saber quien espichó el botón */
+    this.setState(
+            {
+              seleccion /*Asignar ese estado a selección */
+            },
+            () => this.calculo()
+          )   
+          console.log(this.state.seleccion)  
+  }
   
+  reiniciar = () =>{
+    this.setState({
+      seleccion: {} /*Resetear el estado de selección */
+    })
+    console.log(this.setState.seleccion)
+  }
 
   calculo = () => {
-    console.log(this.state.aleatoreo1);
-    console.log(this.state.aleatoreo2);
+    if (Object.getOwnPropertyNames(this.state.seleccion).length > 1) { /* Hasta que haya al menos una selección realice el calculo */
+      let resultado = "";
+      if(
+        (this.state.seleccion.playerOne === "PIEDRA" && this.state.seleccion.playerTwo === "PAPEL") ||
+        (this.state.seleccion.playerOne === "PAPEL" && this.state.seleccion.playerTwo === "TIJERA") ||
+        (this.state.seleccion.playerOne === "TIJERA" && this.state.seleccion.playerTwo=== "PIEDRA")
+      ) resultado ="¡GANASTE! FELICIDADES";
+      
+      if(
+        (this.state.seleccion.playerOne === "PIEDRA" && this.state.seleccion.playerTwo === "PIEDRA") ||
+        (this.state.seleccion.playerOne === "PAPEL" && this.state.seleccion.playerTwo === "PAPEL") ||
+        (this.state.seleccion.playerOne === "TIJERA" && this.state.seleccion.playerTwo === "TIJERA")
+      ) resultado = "¡EMPATADOS: INTENTA DE NUEVO!";
+      
+      if(
+        (this.state.seleccion.playerOne === "PIEDRA" && this.state.seleccion.playerTwo === "TIJERA") ||
+        (this.state.seleccion.playerOne === "PAPEL" && this.state.seleccion.playerTwo === "PIEDRA") ||
+        (this.state.seleccion.playerOne === "TIJERA" && this.state.seleccion.playerTwo === "PAPEL")
+      ) resultado = "¡PERDISTE! LO SIENTO";
 
-    let resultado = "";
-    if(
-      (this.state.aleatoreo1 === "PIEDRA" && this.state.aleatoreo2 === "PAPEL") ||
-      (this.state.aleatoreo1 === "PAPEL" && this.state.aleatoreo2 === "TIJERA") ||
-      (this.state.aleatoreo1 === "TIJERA" && this.state.aleatoreo2=== "PIEDRA")
-    ) resultado ="¡GANASTE! FELICIDADES";
-    
-    if(
-      (this.state.aleatoreo1 === "PIEDRA" && this.state.aleatoreo2 === "PIEDRA") ||
-      (this.state.aleatoreo1 === "PAPEL" && this.state.aleatoreo2 === "PAPEL") ||
-      (this.state.aleatoreo1 === "TIJERA" && this.state.aleatoreo2 === "TIJERA")
-    ) resultado = "¡EMPATADOS: INTENTA DE NUEVO!";
-    
-    if(
-      (this.state.aleatoreo1 === "PIEDRA" && this.state.aleatoreo2 === "TIJERA") ||
-      (this.state.aleatoreo1 === "PAPEL" && this.state.aleatoreo2 === "PIEDRA") ||
-      (this.state.aleatoreo1 === "TIJERA" && this.state.aleatoreo2 === "PAPEL")
-    ) resultado = "¡PERDISTE! LO SIENTO";
-
-    this.setState({
-      resultado // resultado: resultado
-    })
+      this.setState({
+        resultado
+      })
+    }
   }
+  /* NOTA: en el Onclick solamente se pasa el evento de los jugadores para que según el evento realice la acción
+  determinada en el handleClick que sería elegir la opción*/
   
   render() 
   {
-          return(
+      return(
+      <div>
+        <div><h1 className="header">¿PIEDRA, PAPEL O TIJERA?</h1></div>
+        <button id="playerOne" className="boton-personalizado bppt1" onClick={(e) => this.handleClick(e)}> Jugador #1 </button>
+        <button id="playerTwo" className="boton-personalizado bppt2" onClick={(e) => this.handleClick(e)}> Jugador #2</button>
+        <button  className="boton-personalizado bppt3" onClick={this.reiniciar.bind(this)}> Reinicio</button>
+        
+        {Object.getOwnPropertyNames(this.state.seleccion).length > 1 && this.state.resultado &&       
           <div>
-            <div><h1 className="header">¿PIEDRA, PAPEL O TIJERA?</h1></div>
-            <button className="boton-personalizado bppt1" onClick={(e, aleatoreo1) => this.handleClick(aleatoreo1)}> 1 </button>
-            <button className="boton-personalizado bppt2" onClick={(e, aleatoreo2) => this.handleClick(aleatoreo2)}> 2</button>
-            
-            
-            { this.state.resultado &&  
-              <div>
-                <h1 className="resultado">{this.state.resultado}</h1>
-                <div className="elemaquina">
-                  <h3> La elección de la máquina fue: {this.state.aleatoreo1}</h3>
-                  <h3> La elección del jugador fue: {this.state.aleatoreo2}</h3>
-                </div>                
-              </div>
-    	    }
-            
+            <div className="elemaquina">
+            <h3> La elección del jugador uno fue: {this.state.seleccion.playerOne}</h3>
+            <h2> La elección del jugador dos fue: {this.state.seleccion.playerTwo}</h2>          
+          </div> 
+          <div>
+            <h1 className="resultado">{this.state.resultado}</h1>
           </div>
-        )
+          </div> 
+        }      
+      </div>
+    )
     
     }
       
 }
-
 export default Multijugador;
