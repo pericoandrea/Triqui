@@ -1,236 +1,230 @@
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
-    background-image: url(yoshi.jpg);
-  }
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+  background-image: url(yoshi.jpg);
+}
 
-  .boton-personalizado {
-    text-decoration:none;
-    font-weight:600;
-    font-size: 30px;
-    color:#ffffff;
-    padding: 50px 50px;
-    border-style: dashed;
-    border-color: yellow;
-    border-radius: 20px;
-    background-color:transparent;
-    position: relative;
-    left: 40%;
-    font-family: cursive;
-    }
+.boton-personalizado {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 30px;
+  color: #ffffff;
+  padding: 50px 50px;
+  border-style: dashed;
+  border-color: yellow;
+  border-radius: 20px;
+  background-color: transparent;
+  position: relative;
+  left: 40%;
+  font-family: cursive;
+}
 
-  .boton-personalizado:hover{
-    background-color: rgba(167, 233, 14, 0.24)
-  }
+.boton-personalizado:hover {
+  background-color: rgba(167, 233, 14, 0.24);
+}
 
-  .boton_orden{
-    background-color: rgba(255, 68, 0, 0.74);
-    border-color: orangered;
-    border-radius: 20px;
-    color: peachpuff;
-    font-family: cursive;
-    position: relative;
-    left: 15%;
-    padding: 5px 5px;
-  }
+.boton_orden {
+  background-color: rgba(255, 68, 0, 0.74);
+  border-color: orangered;
+  border-radius: 20px;
+  color: peachpuff;
+  font-family: cursive;
+  position: relative;
+  left: 15%;
+  padding: 5px 5px;
+}
 
-  .ganador{
-    background-color: violet;
-    color: teal;
-  }
+.ganador {
+  background-color: violet;
+  color: teal;
+}
 
+.divbot {
+  position: absolute;
+  top: 55%;
+  left: 40%;
+}
 
-  .divbot{
-    position: absolute;
-    top: 55%;
-    left: 40%;
-  }
-
-  /*.cuadrowinner{
+/*.cuadrowinner{
     background-color: tomato;
   }*/
 
-  .entrada{
-    color: rgb(224, 221, 21);
-    text-align: center;
-    font-size: 50px;
-    font-family: cursive;
-  }
-
-  ol, ul {
-    padding-left: 30px;
-  }
-  
-  .board-row:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  
-  .parrafos{
-    color: orangered;
-    font-family: cursive;
-    text-align: center;
-    font-size: 30px;
-    width: 300px;
-    position: absolute;
-    top: 20%;
+.entrada {
+  color: rgb(224, 221, 21);
+  text-align: center;
+  font-size: 50px;
+  font-family: cursive;
 }
-  .parrafo1{
-    position: absolute;
-    top: 70%;
-    right: 5%;
-    font-size: 40px;
-    color: wheat;
-  }
-  
-  .status {
-    margin-bottom: 10px;
-  }
-  
-  .square {
-    background: transparent;
-    border: 1px solid rgb(121, 226, 1);
-    float: left;
-    font-size: 90px;
-    font-weight: bold;
-    line-height: 50px;
-    height: 150px;
-    padding: 0;
-    text-align: center;
-    width: 150px;
-    color: whitesmoke;
-    align-content: center;
-    font-family: cursive;
-  }
-  
-  .square:focus {
-    outline: none;
-    /*comentario*/
-  }
 
-  .square-bold {
-    color: white;
-    background-color: rgb(101, 199, 21);
-  }
-  
-  .kbd-navigation .square:focus {
-    background: #ddd;
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: row;
+ol,
+ul {
+  padding-left: 30px;
+}
 
-  }
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
 
-  .game-board{
-    position: relative;
-    left: 32%;
-  }
-  
-  .game-info {
-    position: relative;
-    left: 33%;
-  }
+.parrafos {
+  color: orangered;
+  font-family: cursive;
+  text-align: center;
+  font-size: 30px;
+  width: 300px;
+  position: absolute;
+  top: 20%;
+}
+.parrafo1 {
+  position: absolute;
+  top: 70%;
+  right: 5%;
+  font-size: 40px;
+  color: wheat;
+}
 
-  .estatus{
-    color: yellow;
-    font-size: 20px;
-    text-align: center;
+.status {
+  margin-bottom: 10px;
+}
 
-  }
+.square {
+  background: transparent;
+  border: 1px solid rgb(121, 226, 1);
+  float: left;
+  font-size: 90px;
+  font-weight: bold;
+  line-height: 50px;
+  height: 150px;
+  padding: 0;
+  text-align: center;
+  width: 150px;
+  color: whitesmoke;
+  align-content: center;
+  font-family: cursive;
+}
 
-  .lista
-  {
-    list-style: none;
+.square:focus {
+  outline: none;
+  /*comentario*/
+}
 
-  }
+.square-bold {
+  color: white;
+  background-color: rgb(101, 199, 21);
+}
 
-  .botonlist {
-    background-color: yellowgreen;
-    list-style: none;
-    border-radius: 15px;
-    border-color: yellow;
-    padding: 5px 5px;
-    margin: 2.5px;
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
 
-  }
+.game {
+  display: flex;
+  flex-direction: row;
+}
 
-  .text{
-    background-color: olivedrab;
-  }
-  
-  .titulo{
-    align-content: center;
-    color: tomato;
-  }
+.game-board {
+  position: relative;
+  left: 32%;
+}
 
-  .header{
-    color: tomato;
-    text-align: center;
-    font-size: 50px;
-    font-family: cursive;
-    margin: 0px 0px;
-  }
-  .triangulo {
-    border-style: solid;
-    border-width: 18px;
-    width: 0;
-    height: 0;
-  }
+.game-info {
+  position: relative;
+  left: 33%;
+}
 
-  .flecha1{
-  width:0px;
-  height:0px;
-  border-bottom:25px solid transparent;  /* izquierda flecha */
-  border-top:25px solid transparent; /* derecha flecha */
-  border-right:75px solid rgb(255, 230, 0); /* base flecha y color*/
-  font-size:0px;
-  line-height:0px;
+.estatus {
+  color: yellow;
+  font-size: 20px;
+  text-align: center;
+}
+
+.lista {
+  list-style: none;
+}
+
+.botonlist {
+  background-color: yellowgreen;
+  list-style: none;
+  border-radius: 15px;
+  border-color: yellow;
+  padding: 5px 5px;
+  margin: 2.5px;
+}
+
+.text {
+  background-color: olivedrab;
+}
+
+.titulo {
+  align-content: center;
+  color: tomato;
+}
+
+.header {
+  color: tomato;
+  text-align: center;
+  font-size: 50px;
+  font-family: cursive;
+  margin: 0px 0px;
+}
+.triangulo {
+  border-style: solid;
+  border-width: 18px;
+  width: 0;
+  height: 0;
+}
+
+.flecha1 {
+  width: 0px;
+  height: 0px;
+  border-bottom: 25px solid transparent; /* izquierda flecha */
+  border-top: 25px solid transparent; /* derecha flecha */
+  border-right: 75px solid rgb(255, 230, 0); /* base flecha y color*/
+  font-size: 0px;
+  line-height: 0px;
   position: absolute;
   right: 5%;
-  top: 55%; 
+  top: 55%;
 }
 
-.flecha2{
+.flecha2 {
   position: absolute;
   right: 10%;
 }
-.flecha3{
+.flecha3 {
   position: absolute;
   right: 15%;
 }
 
-.eleccion{
-  font-size: 25px;;
+.eleccion {
+  font-size: 25px;
   color: azure;
   position: relative;
   top: 20%;
-
 }
 
 .boton-personalizado1 {
-  text-decoration:none;
+  text-decoration: none;
   font-size: 20px;
-  color:rgb(241, 246, 247);
+  color: rgb(241, 246, 247);
   padding: 50px 40px;
   border-style: dashed;
   border-color: yellow;
   border-radius: 20px;
-  background-color:transparent;
+  background-color: transparent;
   position: absolute;
   left: 25%;
   top: 48%;
   font-family: cursive;
-  }
+}
 
-.boton-personalizado1:hover{
+.boton-personalizado1:hover {
   background-color: rgba(85, 203, 224, 0.664);
   color: rgb(7, 61, 71);
 }
 
-.bppt1{
+.bppt1 {
   position: absolute;
   left: 30%;
   top: 40%;
@@ -238,12 +232,12 @@ body {
   padding: 5px 5px;
   border-color: tomato;
 }
-.bppt1:hover{
+.bppt1:hover {
   background-color: rgba(224, 124, 85, 0.664);
-  color:wheat;
+  color: wheat;
 }
 
-.bppt2{
+.bppt2 {
   position: absolute;
   left: 45%;
   top: 40%;
@@ -251,12 +245,12 @@ body {
   padding: 5px 5px;
   border-color: tomato;
 }
-.bppt2:hover{
+.bppt2:hover {
   background-color: rgba(224, 124, 85, 0.664);
-  color:wheat;
+  color: wheat;
 }
 
-.bppt3{
+.bppt3 {
   position: absolute;
   left: 60%;
   top: 40%;
@@ -265,12 +259,12 @@ body {
   border-color: tomato;
 }
 
-.bppt3:hover{
+.bppt3:hover {
   background-color: rgba(224, 124, 85, 0.664);
-  color:wheat;
+  color: wheat;
 }
 
-.elemaquina{
+.elemaquina {
   color: rgb(36, 215, 228);
   font-size: 30px;
   position: absolute;
@@ -281,22 +275,46 @@ body {
   margin: 0px 20px;
 }
 
-.resultado{
+.resultado {
   color: rgb(36, 215, 228);
   font-family: cursive;
   position: relative;
   left: 30%;
 }
 
-.uno{
+.uno {
   position: absolute;
   top: 40%;
   left: 15%;
 }
 
-.multi{
+.multi {
   position: absolute;
   top: 40%;
   left: 50%;
+}
 
+.math {
+  position: absolute;
+  top: 30%;
+  left: 65%;
+  padding: 10px;
+}
+
+.math1 {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  padding: 10px;
+}
+
+.math2 {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  padding: 10px;
+}
+
+.letras {
+  color: coral;
 }

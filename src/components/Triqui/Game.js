@@ -7,40 +7,74 @@ class Game extends Component {
     this.state = {
       history: [
         {
-          squares: [[null,null,null],[null,null,null],[null,null,null]],
-          position: [null,null]
-        }
+          squares: [
+            [null, null, null],
+            [null, null, null],
+            [null, null, null],
+          ],
+          position: [null, null],
+        },
       ],
       stepNumber: 0,
       xIsNext: true,
       Descendente: true,
-      ganador: []
+      ganador: [],
     };
   }
 
   calculateWinner = (squares) => {
-    const lines = [ 
-      [[0,0],[1,0],[2,0]],
-      [[0,1],[1,1],[2,1]],
-      [[0,2],[1,2],[2,2]],
-      [[0,0],[0,1],[0,2]],
-      [[1,0],[1,1],[1,2]],
-      [[2,0],[2,1],[2,2]],
-      [[0,0],[1,1],[2,2]],
-      [[2,0],[1,1],[0,2]]
+    const lines = [
+      [
+        [0, 0],
+        [1, 0],
+        [2, 0],
+      ],
+      [
+        [0, 1],
+        [1, 1],
+        [2, 1],
+      ],
+      [
+        [0, 2],
+        [1, 2],
+        [2, 2],
+      ],
+      [
+        [0, 0],
+        [0, 1],
+        [0, 2],
+      ],
+      [
+        [1, 0],
+        [1, 1],
+        [1, 2],
+      ],
+      [
+        [2, 0],
+        [2, 1],
+        [2, 2],
+      ],
+      [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+      ],
+      [
+        [2, 0],
+        [1, 1],
+        [0, 2],
+      ],
     ];
     for (let i = 0; i < lines.length; i++) {
-        const [a, b, c] = lines[i];
-        if (
-          squares[a[0]][a[1]] &&
-          squares[a[0]][a[1]] === squares[b[0]][b[1]] &&
-          squares[a[0]][a[1]] === squares[c[0]][c[1]]
-        ) {
-          if(!this.state.ganador.length)
-            this.setState({ganador: [a,b,c]});
-          return squares[a[0]][a[1]];
-        }
-     
+      const [a, b, c] = lines[i];
+      if (
+        squares[a[0]][a[1]] &&
+        squares[a[0]][a[1]] === squares[b[0]][b[1]] &&
+        squares[a[0]][a[1]] === squares[c[0]][c[1]]
+      ) {
+        if (!this.state.ganador.length) this.setState({ ganador: [a, b, c] });
+        return squares[a[0]][a[1]];
+      }
     }
     return null;
   };
@@ -48,13 +82,13 @@ class Game extends Component {
   handleClick(i, j) {
     const { history, stepNumber, xIsNext } = this.state;
     const historia = history.slice(0, stepNumber + 1);
-    const current = historia[historia.length - 1]
+    const current = historia[historia.length - 1];
     const cuadrados = [];
-    
-    for(let k = 0; k < 3; k++) {
-      if(!cuadrados[k]) cuadrados[k] = [];
-      for(let l = 0; l < 3; l ++) {
-        cuadrados[k][l] =  current.squares[k][l];
+
+    for (let k = 0; k < 3; k++) {
+      if (!cuadrados[k]) cuadrados[k] = [];
+      for (let l = 0; l < 3; l++) {
+        cuadrados[k][l] = current.squares[k][l];
       }
     }
 
@@ -63,59 +97,58 @@ class Game extends Component {
     }
     cuadrados[i][j] = xIsNext ? "X" : "O";
 
-
     this.setState({
       history: historia.concat([
         {
           squares: cuadrados,
-          position: [i,j]
-        }
+          position: [i, j],
+        },
       ]),
       stepNumber: historia.length,
-      xIsNext: !this.state.xIsNext
+      xIsNext: !this.state.xIsNext,
     });
   }
 
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: step % 2 === 0
+      xIsNext: step % 2 === 0,
     });
   }
 
   Ordenar() {
     this.setState({
-      Descendente: this.state.Descendente === false
+      Descendente: this.state.Descendente === false,
     });
   }
 
   render() {
-    const {history} = this.state;
+    const { history } = this.state;
     const historia = [...history];
     const current = historia[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
     const moves = historia.map((step, move) => {
-      const desc = move ? `Ir al movimiento # ${move} (${step.position[0]},${step.position[1]})` : "Ir al inicio del juego!";
+      const desc = move
+        ? `Ir al movimiento # ${move} (${step.position[0]},${step.position[1]})`
+        : "Ir al inicio del juego!";
       return (
         <li className="lista" key={move}>
-          <button  className="botonlist"  onClick={() => this.jumpTo(move)}>       
-          {move === this.state.stepNumber ? <b>{desc}</b> : desc}
+          <button className="botonlist" onClick={() => this.jumpTo(move)}>
+            {move === this.state.stepNumber ? <b>{desc}</b> : desc}
           </button>
         </li>
       );
     });
- 
 
     let status;
     if (winner) {
       status = "Ganador: " + winner;
-    }      
-    else {
+    } else {
       status = "Siguiente Jugador: " + (this.state.xIsNext ? "X" : "O");
     }
     /*console.log(this.state.history.length);*/
     /*Según el console log existe un movimiento más es decir son 10 porque volver al juego es contado como un movimiento */
-    if(!winner && this.state.history.length === 10){
+    if (!winner && this.state.history.length === 10) {
       status = "¡Los/as Jugadores/as están empatados/as!";
     }
 
@@ -126,25 +159,23 @@ class Game extends Component {
             squares={current.squares}
             position={current.position}
             ganadores={this.state.ganador}
-            onClick={(i, j) => this.handleClick(i, j)} 
+            onClick={(i, j) => this.handleClick(i, j)}
             /*winner = {this.calculateWinner(current.squares)}*/
-           
           />
         </div>
         <div className="game-info">
           <div className="estatus">{status}</div>
-        
-        <div>
-          <ol>{this.state.Descendente ? moves : moves.reverse()}</ol>
-          <button className="boton_orden" onClick={() => this.Ordenar()}>
-            Organizar por: {this.state.Descendente ? "Descendente" : "Ascendente"}
-          </button>
-        </div>
+
+          <div>
+            <ol>{this.state.Descendente ? moves : moves.reverse()}</ol>
+            <button className="boton_orden" onClick={() => this.Ordenar()}>
+              Organizar por:{" "}
+              {this.state.Descendente ? "Descendente" : "Ascendente"}
+            </button>
+          </div>
         </div>
       </div>
     );
-    
-
   }
 }
 
